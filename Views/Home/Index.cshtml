@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form id="pesquisaPublicacoesForm">
+    <input type="text" placeholder="Escreva o nome dos utilizadores para procurar as suas publicações..." id="pesquisaPublicacoes" />
+    <button type="submit">Pesquisar publicações</button>
+</form>
+
+<form id="criarPublicacao">
+    <label>
+        Nova publicação:
+    </label>
+    <br>
+    <label>
+        <input type="text" required name="publicacao" id="publicacao" />
+    </label>
+    <br>
+    <label>
+        Foto:
+        <input type="file" required name="foto" id="foto" accept="image/jpeg" />
+    </label>
+    <br>
+    <button type="submit">Partilhar</button>
+</form>
+<br>
+@* Ver wwwroot/css/site.css ;) *@
+<div id="publicacoes">A carregar publicacoes. Por favor aguarde...</div>
+
+<div id="detalhesPublicacao" class="hidden">
+    <div>
+        <button type="button" id="esconderDetalhes">Fechar</button>
+
+        <img id="fotoPublicada" />
+        <p id="caption"></p>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/ApiPosts.js"></script>
+    <script src="~/js/App.js"></script>
+}
