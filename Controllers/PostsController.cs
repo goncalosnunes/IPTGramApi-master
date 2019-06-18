@@ -53,7 +53,7 @@ namespace IPTGram.Controllers
                 pesquisa = pesquisa.ToLower().Trim();
                 // Como queries são imutáveis, guardamos a nova query na variável acima.
                 // Convém fazer o lower case (minúsculas) para facilitar as pesquisas.
-                query = query.Where(a => a.User.Name.ToLower().Contains(pesquisa));
+                query = query.Where(a => a.User.Name.ToLower().Contains(pesquisa)||a.Caption.ToLower().Contains(pesquisa));
             }
 
             // Usar o .Select para remover as referências circulares
@@ -64,6 +64,7 @@ namespace IPTGram.Controllers
                 {
                     post.Id,
                     post.Caption,
+                    post.PostedAt,
                     User = new
                     {
                         post.User.Id,
@@ -101,6 +102,7 @@ namespace IPTGram.Controllers
                 {
                     p.Id,
                     p.Caption,
+                    p.PostedAt,
                     User = new
                     {
                         p.User.Id,
@@ -108,10 +110,16 @@ namespace IPTGram.Controllers
                         p.User.UserName
                     },
                     likes = p.Likes.Count(),
-                    Comments = p.Comments.Count()
+
+                    ListaDeComentarios = p.Comments
+                    .Select(c => new
+                    {
+                        c.User.Name,
+                        c.PostedAt,
+                        c.Text
+                    })
+                    .ToList()
                 })
-                        .ToList()
-               
                 .FirstOrDefault();
 
             // Enquanto que em MVC eu devolvo uma página, ou faço redirect,

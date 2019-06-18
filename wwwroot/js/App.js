@@ -84,9 +84,35 @@ function mostraDetalhesPublicacao(publicacao) {
         detalhes.classList.add('hidden');
     };
 
+    document.getElementById('user').textContent = publicacao.user.name;
+    document.getElementById('data').textContent = publicacao.postedAt;
+    document.getElementById('numLikes').textContent = publicacao.likes;
     document.getElementById('caption').textContent = publicacao.caption;
     document.getElementById('fotoPublicada').src = api.getLinkFoto(publicacao.id);
 
+    let containerComentarios = document.querySelector('#comentarios > tbody');
+
+    //// Limpar as multas
+    containerComentarios.innerHTML = "";
+
+
+    for (let comentario of publicacao.listaDeComentarios) {
+        let row = document.createElement('tr');
+
+        let tdNome = document.createElement('td');
+        tdNome.textContent = comentario.name;
+        row.appendChild(tdNome);
+
+        let tdData = document.createElement('td');
+        tdData.textContent = comentario.postedAt;
+        row.appendChild(tdData);
+
+        let tdComentario = document.createElement('td');
+        tdComentario.textContent = comentario.text;
+        row.appendChild(tdComentario);
+
+        containerComentarios.appendChild(row);
+    }
     detalhes.classList.remove('hidden');
 }
 
@@ -117,11 +143,57 @@ function criarDivPost(publicacao) {
     let imgPublicacao = document.createElement("img");
     imgPublicacao.src = api.getLinkFoto(publicacao.id);
     divPublicacao.appendChild(imgPublicacao);
-    let autorPublicacao = document.createElement("h5");
-    let legendaPublicacao = document.createElement("p");
+
+    let numLikes = document.createElement("p");
+    numLikes.textContent = publicacao.likes;
+    divPublicacao.appendChild(numLikes);
+    let labelLikes = document.createElement("span");
+    labelLikes.textContent = " gostos";
+    divPublicacao.appendChild(labelLikes);
+
+    let numComments = document.createElement("p");
+    if (publicacao.comments > 0) {
+        let tabulacao = document.createElement("span");
+        tabulacao.textContent = " | ";
+        divPublicacao.appendChild(tabulacao);
+        numComments.textContent = publicacao.comments;
+        divPublicacao.appendChild(numComments);
+        let labelComments = document.createElement("span");
+        labelComments.textContent = " comentários";
+        divPublicacao.appendChild(labelComments);
+    }
+
+    
+
+    let breakLine1 = document.createElement("br");
+    divPublicacao.appendChild(breakLine1);
+    
+    let autorPublicacao = document.createElement("p");
+    autorPublicacao.className = "autorClass";
     autorPublicacao.textContent = publicacao.user.name;
     divPublicacao.appendChild(autorPublicacao);
+
+    let space = document.createElement("span");
+    space.textContent = " ";
+    divPublicacao.appendChild(space);
+
+    let legendaPublicacao = document.createElement("p");
     legendaPublicacao.textContent = publicacao.caption;
+    divPublicacao.appendChild(legendaPublicacao);
+
+    let breakLine2 = document.createElement("br");
+    divPublicacao.appendChild(breakLine2);
+
+    let dataPublicacao = document.createElement("p");
+    dataPublicacao.textContent = publicacao.postedAt;
+    divPublicacao.appendChild(dataPublicacao);
+
+
+
+
+
+
+        
     imgPublicacao.onclick = async (e) => {
         e.preventDefault();
 
@@ -134,7 +206,9 @@ function criarDivPost(publicacao) {
             alert("Erro ao obter a publicação.");
         }
     };
-    divPublicacao.appendChild(legendaPublicacao);
+    
+    
+    
 
 
  

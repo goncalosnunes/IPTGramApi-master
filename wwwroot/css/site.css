@@ -11,10 +11,17 @@ for details on configuring this project to bundle and minify static web assets. 
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
 }
+.autorClass{
+    font-weight:bold;
+    
+}
 
-    #publicacoes > div > img {
-        width: 100%;
-        cursor: pointer;
+.legenda {
+    display: inline-flex;
+}
+#publicacoes > div > img {
+    width: 100%;
+    cursor: pointer;
 }
 
     #publicacoes > div > h5 {

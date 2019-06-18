@@ -32,11 +32,26 @@
         <button type="button" id="esconderDetalhes">Fechar</button>
 
         <img id="fotoPublicada" />
+        <h5 id="user" class="autorClass"></h5>
         <p id="caption"></p>
+        <p id="numLikes"></p>
+        <label> gostos</label>
+        <p id="data"></p>
+        <table id="comentarios" border="0">
+            <thead>
+                <tr>
+                    <th>Utilizador</th>
+                    <th>Data da publicação</th>
+                    <th>Comentário</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
 </div>
 
 @section Scripts {
     <script src="~/js/ApiPosts.js"></script>
+    <script src="~/lib/moment.js"></script>
     <script src="~/js/App.js"></script>
 }
