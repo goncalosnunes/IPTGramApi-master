@@ -3,6 +3,25 @@
 // Se fosse outro servidor, teria que colocar aqui o link.
 let api = new ApiPosts("");
 
+
+//Permite fazer o scroll to top, mediante jQuery
+var btn = $('#button');
+
+$(window).scroll(function () {
+    if ($(window).scrollTop() > 300) {
+        btn.addClass('show');
+    } else {
+        btn.removeClass('show');
+    }
+});
+
+//Quando o botão é clicado, a página vai para a possição de scroll igual a 0px.
+btn.on('click', function (e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, '300');
+});
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // CRIAR PUBLICAÇÔES
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,7 +106,7 @@ function mostraDetalhesPublicacao(publicacao) {
     document.getElementById('user').textContent = publicacao.user.name;
     let DataPost = new Date(publicacao.postedAt);
     document.getElementById('data').textContent = new Intl.DateTimeFormat('en-GB').format(DataPost);
-    document.getElementById('numLikes').textContent = publicacao.likes;
+    document.getElementById('numLikes').textContent = publicacao.likes + " gostos";
     document.getElementById('caption').textContent = publicacao.caption;
     document.getElementById('fotoPublicada').src = api.getLinkFoto(publicacao.id);
 
@@ -104,14 +123,14 @@ function mostraDetalhesPublicacao(publicacao) {
         tdNome.textContent = comentario.name;
         row.appendChild(tdNome);
 
+        let tdComentario = document.createElement('td');
+        tdComentario.textContent = comentario.text;
+        row.appendChild(tdComentario);
+
         let tdData = document.createElement('td');
         let DataPost = new Date(publicacao.postedAt);
         tdData.textContent = new Intl.DateTimeFormat('en-GB').format(DataPost);
         row.appendChild(tdData);
-
-        let tdComentario = document.createElement('td');
-        tdComentario.textContent = comentario.text;
-        row.appendChild(tdComentario);
 
         containerComentarios.appendChild(row);
     }

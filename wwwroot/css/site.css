@@ -1,12 +1,53 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+#button {
+    display: inline-block;
+    background-color: #FF9800;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 30px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+    #button:hover {
+        cursor: pointer;
+        background-color: #333;
+    }
+
+    #button:active {
+        background-color: #555;
+    }
+
+    #button::after {
+        content: "\f077";
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 2em;
+        line-height: 50px;
+        color: #fff;
+    }
+    #button.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+body {
+    background-color: #f0f0f0;
+}
 
 /* -----------------------------------------------------------------
     Posts
 ----------------------------------------------------------------- */
-body {
-    background-color: #f0f0f0;
-}
+
 
 #publicacoes {
     /* CSS GRID is awesome */
@@ -14,9 +55,9 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
 }
-.autorClass{
-    font-weight:bold;
-    
+
+.autorClass {
+    font-weight: bold;
 }
 
 
@@ -49,6 +90,7 @@ body {
     height: 90vh;
     overflow: scroll;
 }
+
 #fotoPublicada {
     display: block;
     margin-left: auto;
@@ -63,16 +105,17 @@ body {
     cursor: pointer;
 }
 
-    #publicacoes > div > h5 {
-        /*text-align: center;*/
-    }
-    #publicacoes > div > p {
-        display: inline;
-        vertical-align: top;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 14px;
-        line-height: 28px;
-    }
+#publicacoes > div > h5 {
+    /*text-align: center;*/
+}
+
+#publicacoes > div > p {
+    display: inline;
+    vertical-align: top;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 28px;
+}
 
 /* CSS media queries are also awesome */
 @media (max-width: 1024px) {

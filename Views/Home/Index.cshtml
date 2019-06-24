@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+<a id="button"></a>
 <form id="pesquisaPublicacoesForm">
     <input type="text" placeholder="Escreva o nome dos utilizadores para procurar as suas publicações..." id="pesquisaPublicacoes" />
     <button type="submit">Pesquisar publicações</button>
@@ -28,21 +28,20 @@
 <div id="publicacoes">A carregar publicacoes. Por favor aguarde...</div>
 
 <div id="detalhesPublicacao" class="hidden">
-    <div id="teste" >
-        <button type="button" id="esconderDetalhes" class="btn"><i class="fa fa-close"></i>X</button>
+    <div id="teste">
+        <button type="button" id="esconderDetalhes" class="btn"><i class="fa fa-close"></i></button>
 
         <img id="fotoPublicada" />
         <h5 id="user" class="autorClass"></h5>
         <p id="caption"></p>
         <p id="numLikes"></p>
-        <label> gostos</label>
         <p id="data"></p>
         <table id="comentarios" border="0">
             <thead>
                 <tr>
                     <th>Utilizador</th>
-                    <th>Data da publicação</th>
                     <th>Comentário</th>
+                    <th>Data da publicação</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -53,4 +52,6 @@
 @section Scripts {
     <script src="~/js/ApiPosts.js"></script>
     <script src="~/js/App.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
 }
