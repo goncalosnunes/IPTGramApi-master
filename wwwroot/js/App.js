@@ -85,7 +85,8 @@ function mostraDetalhesPublicacao(publicacao) {
     };
 
     document.getElementById('user').textContent = publicacao.user.name;
-    document.getElementById('data').textContent = publicacao.postedAt;
+    let DataPost = new Date(publicacao.postedAt);
+    document.getElementById('data').textContent = new Intl.DateTimeFormat('en-GB').format(DataPost);
     document.getElementById('numLikes').textContent = publicacao.likes;
     document.getElementById('caption').textContent = publicacao.caption;
     document.getElementById('fotoPublicada').src = api.getLinkFoto(publicacao.id);
@@ -104,7 +105,8 @@ function mostraDetalhesPublicacao(publicacao) {
         row.appendChild(tdNome);
 
         let tdData = document.createElement('td');
-        tdData.textContent = comentario.postedAt;
+        let DataPost = new Date(publicacao.postedAt);
+        tdData.textContent = new Intl.DateTimeFormat('en-GB').format(DataPost);
         row.appendChild(tdData);
 
         let tdComentario = document.createElement('td');
@@ -185,7 +187,8 @@ function criarDivPost(publicacao) {
     divPublicacao.appendChild(breakLine2);
 
     let dataPublicacao = document.createElement("p");
-    dataPublicacao.textContent = publicacao.postedAt;
+    let DataPost = new Date(publicacao.postedAt);
+    dataPublicacao.textContent = new Intl.DateTimeFormat('en-GB').format(DataPost);
     divPublicacao.appendChild(dataPublicacao);
 
 

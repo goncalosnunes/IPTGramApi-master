@@ -4,6 +4,9 @@ for details on configuring this project to bundle and minify static web assets. 
 /* -----------------------------------------------------------------
     Posts
 ----------------------------------------------------------------- */
+body {
+    background-color: #f0f0f0;
+}
 
 #publicacoes {
     /* CSS GRID is awesome */
@@ -16,9 +19,45 @@ for details on configuring this project to bundle and minify static web assets. 
     
 }
 
-.legenda {
-    display: inline-flex;
+
+#pesquisaPublicacoesForm {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
+
+
+
+.btn {
+    right: 10px;
+    top: 10px;
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+}
+    /* Darker background on mouse-over */
+    .btn:hover {
+        background-color: RoyalBlue;
+    }
+
+#teste {
+    width: 40vw;
+    height: 90vh;
+    overflow: scroll;
+}
+#fotoPublicada {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
 #publicacoes > div > img {
     width: 100%;
     cursor: pointer;
