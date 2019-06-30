@@ -2,11 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 <a id="button"></a>
-<form id="pesquisaPublicacoesForm">
-    <input type="text" placeholder="Escreva o nome dos utilizadores para procurar as suas publicações..." id="pesquisaPublicacoes" />
-    <button type="submit">Pesquisar publicações</button>
-</form>
-
+@section barraTopo{
+    <form id="pesquisaPublicacoesForm">
+        <input type="text" placeholder="Escreva o nome dos utilizadores para procurar as suas publicações..." id="pesquisaPublicacoes" />
+        <button type="submit">Pesquisar publicações</button>
+    </form>
+}
 <form id="criarPublicacao">
     <label>
         Nova publicação:
@@ -26,11 +27,9 @@
 <br>
 @* Ver wwwroot/css/site.css ;) *@
 <div id="publicacoes">A carregar publicacoes. Por favor aguarde...</div>
-
 <div id="detalhesPublicacao" class="hidden">
     <div id="teste">
         <button type="button" id="esconderDetalhes" class="btn"><i class="fa fa-close"></i></button>
-
         <img id="fotoPublicada" />
         <h5 id="user" class="autorClass"></h5>
         <p id="caption"></p>
@@ -48,7 +47,6 @@
         </table>
     </div>
 </div>
-
 @section Scripts {
     <script src="~/js/ApiPosts.js"></script>
     <script src="~/js/App.js"></script>

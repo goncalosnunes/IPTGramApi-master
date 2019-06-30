@@ -163,6 +163,12 @@ function criarDivPost(publicacao) {
 
     let imgPublicacao = document.createElement("img");
     imgPublicacao.src = api.getLinkFoto(publicacao.id);
+    imgPublicacao.style.height = "400px";
+    imgPublicacao.style.objectPosition = "50% 50%";
+    
+    imgPublicacao.style.objectFit = "cover";
+
+    
     divPublicacao.appendChild(imgPublicacao);
 
     let numLikes = document.createElement("p");

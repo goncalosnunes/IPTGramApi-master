@@ -1,8 +1,14 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+.pesquisaPublicacoesForm {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
 #button {
     display: inline-block;
-    background-color: #FF9800;
+    background-color: dodgerblue;
     width: 50px;
     height: 50px;
     text-align: center;
@@ -19,7 +25,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
     #button:hover {
         cursor: pointer;
-        background-color: #333;
+        background-color: RoyalBlue;
     }
 
     #button:active {
@@ -48,12 +54,30 @@ body {
     Posts
 ----------------------------------------------------------------- */
 
+#criarPublicacao{
+    margin-top:120px;
+}
+
+@media only screen and (min-width : 1024px){
+    #criarPublicacao{
+        margin-top:60px;
+    }
+}
 
 #publicacoes {
     /* CSS GRID is awesome */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 15px;
+}
+
+@media only screen and (min-width : 1024px) {
+    #publicacoes {
+        max-width: 800px;
+        margin: 0 auto;
+        grid-template-columns: repeat(3, 1fr);
+        
+    }
 }
 
 .autorClass {
@@ -87,8 +111,8 @@ body {
 
 #teste {
     width: 40vw;
-    height: 90vh;
-    overflow: scroll;
+    max-height: 90vh;
+    overflow: auto;
 }
 
 #fotoPublicada {
