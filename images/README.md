@@ -1,6 +1,7 @@
 # Imagens
 
-As imagens presentes nesta pasta são usadas no _seed_ da base de dados, para fim de testes.
+As imagens presentes nesta pasta são usadas no _seed_ da base de dados, para fim de 
+s.
 
 Todas as imagens estão disponíveis sobre _Public Domain_, e foram obtidas através do _web site_ https://www.pexels.com/public-domain-images/.
 

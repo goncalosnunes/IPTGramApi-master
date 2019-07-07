@@ -91,28 +91,79 @@ body {
     top: 0;
 }
 
+.nome {
+    width: 260px;
+    line-break: keep-all;
+}
 
+.data{
+    font-size: 11px;
+}
+
+#xz {
+    margin-top: 2px;
+}
 
 .btn {
-    right: 10px;
-    top: 10px;
+    right: 3px;
+    top: 4px;
     background-color: DodgerBlue;
     border: none;
     color: white;
-    padding: 12px 16px;
-    font-size: 16px;
+    padding: 4px 10px;
+    font-size: 21px;
     cursor: pointer;
     position: fixed;
+    text-orientation: center;
 }
     /* Darker background on mouse-over */
     .btn:hover {
         background-color: RoyalBlue;
     }
 
+.btnComenta {
+    width: 200px;
+    border-radius: 8px;
+}
+
+.btnComenta:hover {
+    cursor: pointer;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.btnLike {
+    left: 0px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+}
+
+.btnLike:hover {
+    cursor: pointer;
+    color: #ff0000;
+}
+
+.btnLike:focus {
+    color: #ff0000;
+}
+
+.btnLike:visited {
+    color: #ff0000;
+}
+
 #teste {
+    position: absolute;
     width: 40vw;
-    max-height: 90vh;
+}
+
+#detalhesFoto {
     overflow: auto;
+}
+
+#comentario {
+    width: 300px;
+    height: 100px;
 }
 
 #fotoPublicada {
@@ -160,6 +211,10 @@ body {
     display: none;
 }
 
+#detalhesPublicacao.footer {
+    visibility: none;
+}
+
 #detalhesPublicacao {
     position: fixed;
     top: 0;
@@ -168,19 +223,22 @@ body {
     right: 0;
     background-color: rgba(0, 0, 0, 0.25);
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
     #detalhesPublicacao > div > button {
         position: absolute;
-        top: 20px;
-        right: 20px;
     }
 
     #detalhesPublicacao > div {
         position: relative;
         background-color: white;
-        margin: auto;
-        padding: 20px;
+        margin-top: 50px;
+        height: 90%;
+        padding: 10px;
     }
 
 /* -----------------------------------------------------------------
