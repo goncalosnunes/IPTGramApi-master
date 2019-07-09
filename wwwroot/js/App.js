@@ -120,7 +120,7 @@ function mostraDetalhesPublicacao(publicacao) {
         let row = document.createElement('tr');
 
         let tdNome = document.createElement('td');
-        tdNome.textContent = comentario.name + ':';
+        tdNome.textContent = comentario.name + ': ';
         row.appendChild(tdNome);
 
         tdNome.style.fontWeight = 'bold';
