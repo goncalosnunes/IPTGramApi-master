@@ -67,10 +67,10 @@ document.getElementById('criarPublicacao').onsubmit = async (evt) => {
     evt.preventDefault();
     try {
 
-        let nome = document.getElementById('publicacao').value;
+        let nome = document.getElementById('Caption').value;
 
         // Para obter ficheiros, usa-se o 'files' (é um array) num <input type="file" />
-        let foto = document.getElementById('foto').files[0];
+        let foto = document.getElementById('Fotografia').files[0];
 
         let novaPublicacao = await api.createPublicacao(nome, foto);
 
