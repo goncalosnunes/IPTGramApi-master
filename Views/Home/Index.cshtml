@@ -2,9 +2,24 @@
     ViewData["Title"] = "Home Page";
 }
 <a id="button"></a>
+@section injectLogin{
+<form id="loginForm" class="cabecalho">
+    <input type="text" placeholder="Utilizador" id="UserName" size="10" />
+    <input type="password" placeholder="Palavra passe" id="Password" size="10" />
+    <button id="btnLogOut" type="submit">Login</button>
+</form>
+}
+@section injectBoasVindas{ 
+    
+<form id="boasVindasForm" class="cabecalho">
+    <h4 id="boasvindas"></h4>
+    <button type="submit">Logout</button>
+</form>
+}
 @section barraTopo{
-    <form id="pesquisaPublicacoesForm">
-        <input type="text" placeholder="Escreva o nome dos utilizadores para procurar as suas publicações..." id="pesquisaPublicacoes" />
+    <form id="pesquisaPublicacoesForm" class="cabecalho">
+        <input type="text" placeholder="Escreva o nome dos utilizadores para procurar as suas publicações..." id="pesquisaPublicacoes" size="20" />
+        <br />
         <button type="submit">Pesquisar publicações</button>
     </form>
 }

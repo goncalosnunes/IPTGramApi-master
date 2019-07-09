@@ -23,6 +23,42 @@ btn.on('click', function (e) {
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+// FAZER LOGIN NA PÁGINA
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+document.getElementById('loginForm').onsubmit = async (evt) => {
+
+    evt.preventDefault();
+    try {
+        // obtem o valor do utilizador
+        let user = document.getElementById('UserName').value;
+
+        // obtem o valor da palavra passe
+        let passe = document.getElementById('Password').value;
+
+        let log = await api.enviaLogin(user, passe);
+        
+    } catch (e) {
+        console.error("Erro ao tentar fazer login", e);
+        alert("Erro um erro ao tentar fazer login. Tente novamente.");
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// FAZER LOGOUT NA PÁGINA
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+document.getElementById('boasVindasForm').onsubmit = async (evt) => {
+    evt.preventDefault();
+    try {
+        let logOut = await api.fazLogout();
+    }
+    catch (e) {
+        console.error("Erro ao tentar fazer logout", e);
+        alert("Erro um erro ao tentar fazer logout. Tente novamente.");
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
 // CRIAR PUBLICAÇÔES
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -151,6 +187,54 @@ function mostraListaPublicacoes(publicacoes) {
 
         container.appendChild(divPublicacao);
     }
+}
+
+/**
+ * 
+ */
+
+function esconderDivLogout() {
+    
+        document.getElementById("boasVindasForm").style.display = "none";
+        document.getElementById("loginForm").style.display = "block";
+}
+
+/**
+ *
+ * @param {Number} erro
+ * @returns {HTMLDivElement}
+ */
+
+function criarDivLogin(erro, user) {
+    if (erro === 401) {
+        document.getElementById("boasVindasForm").style.display = "none";
+        document.getElementById("loginForm").style.display = "block";
+        //localStorage.setItem('teste', true); //store state in localStorage
+        //localStorage.setItem('show', false); //store state in localStorage
+    }
+    if (erro === 200) {
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("boasvindas").textContent = "Bem-vindo " + user + "!";
+        document.getElementById("boasVindasForm").style.display = "block";
+        //localStorage.setItem('teste', false); //store state in localStorage
+        //localStorage.setItem('show', true); //store state in localStorage
+    }
+}
+
+//window.onload = function () {
+//    var show = localStorage.getItem('show');
+//    if (show === true) {
+//        document.getElementById('boasVindasForm').style.display = "block";
+//    }
+//    if (teste === true) {
+//        document.getElementById('loginForm').style.display = "block";
+//    }
+//}
+
+window.onload = function () {
+
+    document.getElementById('boasVindasForm').style.display = "none";
+    
 }
 
 /**

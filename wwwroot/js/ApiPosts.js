@@ -18,6 +18,9 @@ class ApiPosts {
   getLinkFoto(id) {
     return this.linkApi + "/api/posts/" + id + "/foto";
   }
+
+
+
   /**
    * Obtém a lista de publicações.
    * @param {string} pesquisa Termo de pesquisa.
@@ -36,7 +39,8 @@ class ApiPosts {
     let resposta = await fetch(
       this.linkApi + "/api/posts?" + termosPesquisa.toString(),
       {
-        method: "GET",
+          method: "GET",
+          credentials: "include",
         headers: {
           Accept: "application/json"
         }
@@ -47,7 +51,7 @@ class ApiPosts {
       let textoErro = await resposta.text();
       throw new Error(textoErro);
     }
-
+    
     let posts = await resposta.json();
 
     return posts;
@@ -59,7 +63,8 @@ class ApiPosts {
    */
   async getPublicacao(id) {
     let resposta = await fetch(this.linkApi + "/api/posts/" + id, {
-      method: "GET",
+        method: "GET",
+        credentials: "include",
       headers: {
         Accept: "application/json"
       }
@@ -74,8 +79,59 @@ class ApiPosts {
 
     return posts;
   }
+    /**
+    * Obtém possibilidade de fazer login
+    * @param {string} userName Nome de utilizador
+    * @param {string} passe Palavra passe
+    * @returns {Promise<any>} Publicação criada.
+    */
 
-  // TODO - Adicionar ImageContentType
+    async enviaLogin(user, passe) {
+        // Usar um objeto do tipo FormData permite-nos enviar ficheiros por AJAX
+        let form = new FormData();
+
+        form.append("UserName", user);
+        form.append("Password", passe);
+
+        let resposta = await fetch(this.linkApi + "/api/account/login", {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                // NOTA: não coloco o Content-Type, porque quando uso FormData
+                // com o fetch, este é definido automaticamente.
+                Accept: "application/json"
+            },
+            body: form
+        });
+
+        if (!resposta.ok) {
+            
+            let textoErro = await resposta.text();
+            throw new Error(textoErro);
+        }
+        criarDivLogin(resposta.status, user);
+        let logIn = await resposta.json();
+        
+
+        return logIn;
+
+    }
+    /**
+     * 
+     * 
+     */
+async fazLogout() {
+        let resposta = await fetch(this.linkApi + "/api/account/logout", {
+            method: "POST",
+            headers: {}
+        });
+        if (!resposta.ok) {
+            let textoErro = await resposta.text();
+            throw new Error(textoErro);
+        }
+    esconderDivLogout();
+}
+
 
   /**
    * Cria uma publicação na API.
@@ -91,7 +147,8 @@ class ApiPosts {
     form.append("foto", photoFileName);
 
     let resposta = await fetch(this.linkApi + "/api/posts", {
-      method: "POST",
+        method: "POST",
+        
       headers: {
         // NOTA: não coloco o Content-Type, porque quando uso FormData
         // com o fetch, este é definido automaticamente.
@@ -123,7 +180,7 @@ class ApiPosts {
     let resposta = await fetch(this.linkApi + "/api/posts/" + id, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
+       
         Accept: "application/json"
       },
       body: JSON.stringify(body)

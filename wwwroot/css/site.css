@@ -1,9 +1,11 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-.pesquisaPublicacoesForm {
-    position: fixed;
-    top: 0;
-    width: 100%;
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
 }
 
 #button {
@@ -46,21 +48,17 @@ for details on configuring this project to bundle and minify static web assets. 
         visibility: visible;
     }
 
-body {
-    background-color: #f0f0f0;
-}
-
 /* -----------------------------------------------------------------
     Posts
 ----------------------------------------------------------------- */
 
 #criarPublicacao{
-    margin-top:120px;
+    margin-top:180px;
 }
 
 @media only screen and (min-width : 1024px){
     #criarPublicacao{
-        margin-top:60px;
+        margin-top:100px;
     }
 }
 
@@ -85,11 +83,7 @@ body {
 }
 
 
-#pesquisaPublicacoesForm {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-}
+
 
 
 
@@ -102,7 +96,9 @@ body {
     padding: 12px 16px;
     font-size: 16px;
     cursor: pointer;
-    position: fixed;
+    position: static;
+    left: 10px;
+    top: 100px;
 }
     /* Darker background on mouse-over */
     .btn:hover {
@@ -186,10 +182,11 @@ body {
 /* -----------------------------------------------------------------
     FIM AGENTES 
 ----------------------------------------------------------------- */
-posts.navbar-brand {
+posts.navbar {
     white-space: normal;
     text-align: center;
     word-break: break-all;
+
 }
 
 /* Sticky footer styles
@@ -230,7 +227,8 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
+    margin-bottom: 120px;
+    background-color: #f0f0f0;
 }
 
 .footer {
