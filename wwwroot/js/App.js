@@ -37,7 +37,7 @@ document.getElementById('loginForm').onsubmit = async (evt) => {
         let passe = document.getElementById('Password').value;
 
         let log = await api.enviaLogin(user, passe);
-        
+
     } catch (e) {
         console.error("Erro ao tentar fazer login", e);
         alert("Erro um erro ao tentar fazer login. Tente novamente.");
@@ -67,10 +67,10 @@ document.getElementById('criarPublicacao').onsubmit = async (evt) => {
     evt.preventDefault();
     try {
 
-        let nome = document.getElementById('publicacao').value;
+        let nome = document.getElementById('Caption').value;
 
         // Para obter ficheiros, usa-se o 'files' (é um array) num <input type="file" />
-        let foto = document.getElementById('foto').files[0];
+        let foto = document.getElementById('Fotografia').files[0];
 
         let novaPublicacao = await api.createPublicacao(nome, foto);
 
@@ -125,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // FUNÇÕES AUXILIARES
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 /**
  * Mostra os detalhes da publicação no div com ID #detalhesPublicacao.
  * @param {any} publicacao Publicação para qual mostrar os dados.
@@ -157,34 +156,22 @@ function mostraDetalhesPublicacao(publicacao) {
         let row = document.createElement('tr');
 
         let tdNome = document.createElement('td');
-        tdNome.textContent = comentario.name + ': ';
+        tdNome.textContent = comentario.name;
         row.appendChild(tdNome);
-
-        tdNome.style.fontWeight = 'bold';
-        tdNome.style.fontSize = '14px';
 
         let tdComentario = document.createElement('td');
         tdComentario.textContent = comentario.text;
         row.appendChild(tdComentario);
 
-        tdComentario.style.fontSize = '13px';
-
-        let row2 = document.createElement('tr');
-
         let tdData = document.createElement('td');
         let DataPost = new Date(publicacao.postedAt);
         tdData.textContent = new Intl.DateTimeFormat('en-GB').format(DataPost);
-        row2.appendChild(tdData);
-
-        tdData.style.fontSize = '9px';
-        tdData.style.color = 'grey';
+        row.appendChild(tdData);
 
         containerComentarios.appendChild(row);
-        containerComentarios.appendChild(row2);
     }
     detalhes.classList.remove('hidden');
 }
-
 
 /**
  * Coloca no div com o ID #publicacoes uma lista de publicacoes.
@@ -207,9 +194,9 @@ function mostraListaPublicacoes(publicacoes) {
  */
 
 function esconderDivLogout() {
-    
-        document.getElementById("boasVindasForm").style.display = "none";
-        document.getElementById("loginForm").style.display = "block";
+
+    document.getElementById("boasVindasForm").style.display = "none";
+    document.getElementById("loginForm").style.display = "block";
 }
 
 /**
@@ -247,7 +234,7 @@ function criarDivLogin(erro, user) {
 window.onload = function () {
 
     document.getElementById('boasVindasForm').style.display = "none";
-    
+
 }
 
 /**
@@ -262,10 +249,10 @@ function criarDivPost(publicacao) {
     imgPublicacao.src = api.getLinkFoto(publicacao.id);
     imgPublicacao.style.height = "400px";
     imgPublicacao.style.objectPosition = "50% 50%";
-    
+
     imgPublicacao.style.objectFit = "cover";
 
-    
+
     divPublicacao.appendChild(imgPublicacao);
 
     let numLikes = document.createElement("p");
@@ -287,11 +274,11 @@ function criarDivPost(publicacao) {
         divPublicacao.appendChild(labelComments);
     }
 
-    
+
 
     let breakLine1 = document.createElement("br");
     divPublicacao.appendChild(breakLine1);
-    
+
     let autorPublicacao = document.createElement("p");
     autorPublicacao.className = "autorClass";
     autorPublicacao.textContent = publicacao.user.name;
@@ -318,7 +305,7 @@ function criarDivPost(publicacao) {
 
 
 
-        
+
     imgPublicacao.onclick = async (e) => {
         e.preventDefault();
 
@@ -331,12 +318,12 @@ function criarDivPost(publicacao) {
             alert("Erro ao obter a publicação.");
         }
     };
-    
-    
-    
 
 
- 
+
+
+
+
 
     return divPublicacao;
 }
