@@ -44,20 +44,24 @@
 <div id="publicacoes">A carregar publicacoes. Por favor aguarde...</div>
 <div id="detalhesPublicacao" class="hidden">
     <div id="teste">
-        <button type="button" id="esconderDetalhes" class="btn"><i class="fa fa-close"></i></button>
         <img id="fotoPublicada" />
+	</div>
+	<div id="detalhesFoto">
+		<button type="button" id="esconderDetalhes" class="btn"><i class="fa fa-close"></i></button>
         <h5 id="user" class="autorClass"></h5>
-        <p id="caption"></p>
-        <p id="numLikes"></p>
-        <p id="data"></p>
+        <p id="caption" class="nome"></p>
+		<p id="data" class="data"></p>
+		<button type="button" id="Like" class="btnLike">♡</button>
+		<br><br>
+		<p id="numLikes"></p>
+		<br>
+		<textarea id="comentario" cols="40" rows="5" placeholder="Adicione um comentário"></textarea>
+		<br>
+		<button type="button" id="publicarComentario" class="btnComenta">Publicar</button>
+		<br>
+		<br>
+		<br>
         <table id="comentarios" border="0">
-            <thead>
-                <tr>
-                    <th>Utilizador</th>
-                    <th>Comentário</th>
-                    <th>Data da publicação</th>
-                </tr>
-            </thead>
             <tbody></tbody>
         </table>
     </div>

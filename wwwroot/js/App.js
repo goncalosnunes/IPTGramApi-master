@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // FUNÇÕES AUXILIARES
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 /**
  * Mostra os detalhes da publicação no div com ID #detalhesPublicacao.
  * @param {any} publicacao Publicação para qual mostrar os dados.
@@ -156,22 +157,34 @@ function mostraDetalhesPublicacao(publicacao) {
         let row = document.createElement('tr');
 
         let tdNome = document.createElement('td');
-        tdNome.textContent = comentario.name;
+        tdNome.textContent = comentario.name + ': ';
         row.appendChild(tdNome);
+
+        tdNome.style.fontWeight = 'bold';
+        tdNome.style.fontSize = '14px';
 
         let tdComentario = document.createElement('td');
         tdComentario.textContent = comentario.text;
         row.appendChild(tdComentario);
 
+        tdComentario.style.fontSize = '13px';
+
+        let row2 = document.createElement('tr');
+
         let tdData = document.createElement('td');
         let DataPost = new Date(publicacao.postedAt);
         tdData.textContent = new Intl.DateTimeFormat('en-GB').format(DataPost);
-        row.appendChild(tdData);
+        row2.appendChild(tdData);
+
+        tdData.style.fontSize = '9px';
+        tdData.style.color = 'grey';
 
         containerComentarios.appendChild(row);
+        containerComentarios.appendChild(row2);
     }
     detalhes.classList.remove('hidden');
 }
+
 
 /**
  * Coloca no div com o ID #publicacoes uma lista de publicacoes.

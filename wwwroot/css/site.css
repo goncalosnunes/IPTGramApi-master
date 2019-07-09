@@ -2,10 +2,9 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 .cabecalho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 #button {
@@ -43,6 +42,7 @@ for details on configuring this project to bundle and minify static web assets. 
         line-height: 50px;
         color: #fff;
     }
+
     #button.show {
         opacity: 1;
         visibility: visible;
@@ -52,13 +52,13 @@ for details on configuring this project to bundle and minify static web assets. 
     Posts
 ----------------------------------------------------------------- */
 
-#criarPublicacao{
-    margin-top:180px;
+#criarPublicacao {
+    margin-top: 120px;
 }
 
-@media only screen and (min-width : 1024px){
-    #criarPublicacao{
-        margin-top:100px;
+@media only screen and (min-width : 1024px) {
+    #criarPublicacao {
+        margin-top: 60px;
     }
 }
 
@@ -74,7 +74,6 @@ for details on configuring this project to bundle and minify static web assets. 
         max-width: 800px;
         margin: 0 auto;
         grid-template-columns: repeat(3, 1fr);
-        
     }
 }
 
@@ -82,28 +81,74 @@ for details on configuring this project to bundle and minify static web assets. 
     font-weight: bold;
 }
 
+.nome {
+    width: 260px;
+    line-break: keep-all;
+}
 
-
-
-
+.data {
+    font-size: 11px;
+}
 
 .btn {
-    right: 10px;
-    top: 10px;
+    right: 3px;
+    top: 4px;
     background-color: DodgerBlue;
     border: none;
     color: white;
-    padding: 12px 16px;
-    font-size: 16px;
+    padding: 2px 10px 4px 10px;
+    font-size: 21px;
     cursor: pointer;
-    position: static;
-    left: 10px;
-    top: 100px;
+    position: fixed;
 }
     /* Darker background on mouse-over */
     .btn:hover {
         background-color: RoyalBlue;
     }
+
+.btnComenta {
+    width: 200px;
+    border-radius: 8px;
+}
+
+    .btnComenta:hover {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+.btnLike {
+    background: transparent;
+    border: none;
+    font-size: 30px;
+}
+
+    .btnLike:hover {
+        cursor: pointer;
+        color: #ff0000;
+    }
+
+    .btnLike:focus {
+        color: #ff0000;
+    }
+
+    .btnLike:visited {
+        color: #ff0000;
+    }
+
+#teste {
+    position: absolute;
+    width: 40vw;
+}
+
+#detalhesFoto {
+    overflow: auto;
+}
+
+#comentario {
+    width: 300px;
+    height: 100px;
+}
+
 
 #teste {
     width: 40vw;
@@ -164,6 +209,11 @@ for details on configuring this project to bundle and minify static web assets. 
     right: 0;
     background-color: rgba(0, 0, 0, 0.25);
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
     #detalhesPublicacao > div > button {
@@ -175,8 +225,9 @@ for details on configuring this project to bundle and minify static web assets. 
     #detalhesPublicacao > div {
         position: relative;
         background-color: white;
-        margin: auto;
-        padding: 20px;
+        margin-top: 55px;
+        height: 90%;
+        padding: 10px 30px 10px 10px;
     }
 
 /* -----------------------------------------------------------------
@@ -186,7 +237,6 @@ posts.navbar {
     white-space: normal;
     text-align: center;
     word-break: break-all;
-
 }
 
 /* Sticky footer styles
