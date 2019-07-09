@@ -128,7 +128,6 @@ body {
 
 .btnComenta:hover {
     cursor: pointer;
-    color: #ff0000;
     font-weight: bold;
 }
 
@@ -227,6 +226,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
     #detalhesPublicacao > div > button {
