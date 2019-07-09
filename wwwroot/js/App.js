@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // FUNÇÕES AUXILIARES
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
 /**
  * Mostra os detalhes da publicação no div com ID #detalhesPublicacao.
  * @param {any} publicacao Publicação para qual mostrar os dados.
@@ -147,6 +148,7 @@ function mostraDetalhesPublicacao(publicacao) {
     }
     detalhes.classList.remove('hidden');
 }
+
 
 /**
  * Coloca no div com o ID #publicacoes uma lista de publicacoes.
