@@ -30,11 +30,12 @@
                     @*<partial name="_LoginPartial" />*@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"></a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Página principal</a>
                         </li>
-
                     </ul>
                 </div>
+                @RenderSection("injectLogin", false)
+                @RenderSection("injectBoasVindas", false)
                 @RenderSection("barraTopo", false)
             </div>
         </nav>
