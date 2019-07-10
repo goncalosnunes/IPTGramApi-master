@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using IPTGram.Data;
 using System.IO;
 using IPTGram.Models.Post;
@@ -149,8 +146,9 @@ namespace IPTGram.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromForm] CreatePostModel model)
+        public async Task<IActionResult> Create([FromForm] CreatePostModel model)
         {
+
             var currentUser = await userManager.FindByNameAsync(User.Identity.Name);
             
             // Da mesma forma que no MVC valido erros, faço o mesmo na API.
