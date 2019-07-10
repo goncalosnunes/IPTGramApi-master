@@ -144,6 +144,7 @@ for details on configuring this project to bundle and minify static web assets. 
     }
 }
 
+
 @media (max-width: 640px) {
     #publicacoes {
         grid-template-columns: repeat(1, 1fr);
