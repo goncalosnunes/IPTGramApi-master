@@ -136,15 +136,15 @@ async fazLogout() {
   /**
    * Cria uma publicação na API.
    * @param {string} caption Legenda da publicação.
-   * @param {File} photoFileName Ficheiro da foto da publicação.
+   * @param {file} photo Ficheiro da foto da publicação.
    * @returns {Promise<any>} Publicação criada.
    */
-  async createPublicacao(caption, photoFileName) {
+    async createPublicacao(caption, photo) {
     // Usar um objecto do tipo FormData permite-nos enviar ficheiros por AJAX.
     let form = new FormData();
 
-    form.append("publicacao", caption);
-    form.append("foto", photoFileName);
+        form.append("Caption", caption);
+        form.append("Fotografia", photo);
 
     let resposta = await fetch(this.linkApi + "/api/posts", {
         method: "POST",
