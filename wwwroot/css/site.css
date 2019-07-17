@@ -84,31 +84,72 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 
+.nome {
+    width: 260px;
+    line-break: keep-all;
+}
 
+.data {
+    font-size: 11px;
+}
 
 
 .btn {
-    right: 10px;
-    top: 10px;
+    right: 3px;
+    top: 0px;
     background-color: DodgerBlue;
     border: none;
     color: white;
-    padding: 12px 16px;
-    font-size: 16px;
+    padding: 4px 10px;
+    font-size: 21px;
     cursor: pointer;
-    position: static;
-    left: 10px;
-    top: 100px;
+    position: fixed;
 }
     /* Darker background on mouse-over */
     .btn:hover {
         background-color: RoyalBlue;
     }
 
+
+.btnComenta {
+    position: fixed;
+    width: 200px;
+    border-radius: 8px;
+}
+
+.btnComenta:hover {
+    cursor: pointer;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.btnLike {
+    font-size: 15px;
+    border-radius: 8px;
+    vertical-align: middle;
+}
+
+.btnLike:hover {
+    cursor: pointer;
+    background-color: #ff0000;
+}
+
+.btnLike:visited {
+    color: #ff0000;
+}
+
 #teste {
     width: 40vw;
     max-height: 90vh;
+}
+
+#detalhesFoto {
     overflow: auto;
+}
+
+#comentario {
+    width: 300px;
+    height: 100px;
 }
 
 #fotoPublicada {
@@ -165,19 +206,22 @@ for details on configuring this project to bundle and minify static web assets. 
     right: 0;
     background-color: rgba(0, 0, 0, 0.25);
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
     #detalhesPublicacao > div > button {
         position: absolute;
-        top: 20px;
-        right: 20px;
     }
 
     #detalhesPublicacao > div {
         position: relative;
         background-color: white;
-        margin: auto;
-        padding: 20px;
+        margin-top: 50px;
+        height: 90%;
+        padding: 10px;
     }
 
 /* -----------------------------------------------------------------

@@ -156,20 +156,31 @@ function mostraDetalhesPublicacao(publicacao) {
     for (let comentario of publicacao.listaDeComentarios) {
         let row = document.createElement('tr');
 
-        let tdNome = document.createElement('td');
-        tdNome.textContent = comentario.name;
+        let tdNome = document.createElement('div');
+        tdNome.textContent = comentario.name + ': ';
         row.appendChild(tdNome);
+
+        tdNome.style.fontWeight = "bold";
+        tdNome.style.fontSize = "14px";
 
         let tdComentario = document.createElement('td');
         tdComentario.textContent = comentario.text;
         row.appendChild(tdComentario);
 
+        tdComentario.style.fontSize = "13px";
+
+        let row2 = document.createElement('tr');
+
         let tdData = document.createElement('td');
         let DataPost = new Date(publicacao.postedAt);
         tdData.textContent = new Intl.DateTimeFormat('en-GB').format(DataPost);
-        row.appendChild(tdData);
+        row2.appendChild(tdData);
+
+        tdData.style.color = "#363636";
+        tdData.style.fontSize = "10px";
 
         containerComentarios.appendChild(row);
+        containerComentarios.appendChild(row2);
     }
     detalhes.classList.remove('hidden');
 }
