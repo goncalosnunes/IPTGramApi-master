@@ -154,9 +154,11 @@ function mostraDetalhesPublicacao(publicacao) {
 
 
     for (let comentario of publicacao.listaDeComentarios) {
-        let row = document.createElement('tr');
+        let row = document.createElement('div');
 
-        let tdNome = document.createElement('div');
+        row.style.width = "250px";
+
+        let tdNome = document.createElement('td');
         tdNome.textContent = comentario.name + ': ';
         row.appendChild(tdNome);
 
@@ -168,6 +170,7 @@ function mostraDetalhesPublicacao(publicacao) {
         row.appendChild(tdComentario);
 
         tdComentario.style.fontSize = "13px";
+        tdComentario.style.textIndent = "2px";
 
         let row2 = document.createElement('tr');
 
@@ -181,6 +184,7 @@ function mostraDetalhesPublicacao(publicacao) {
 
         containerComentarios.appendChild(row);
         containerComentarios.appendChild(row2);
+        
     }
     detalhes.classList.remove('hidden');
 }

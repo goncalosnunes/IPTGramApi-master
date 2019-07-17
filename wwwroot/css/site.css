@@ -96,7 +96,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .btn {
     right: 3px;
-    top: 0px;
+    top: 3px;
     background-color: DodgerBlue;
     border: none;
     color: white;
@@ -139,8 +139,6 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 #teste {
-    width: 40vw;
-    max-height: 90vh;
 }
 
 #detalhesFoto {
@@ -159,6 +157,7 @@ for details on configuring this project to bundle and minify static web assets. 
     max-width: 100%;
     height: auto;
     max-height: 100%;
+    align-items: center;
 }
 
 #publicacoes > div > img {
@@ -221,7 +220,7 @@ for details on configuring this project to bundle and minify static web assets. 
         background-color: white;
         margin-top: 50px;
         height: 90%;
-        padding: 10px;
+        padding: 15px;
     }
 
 /* -----------------------------------------------------------------
